@@ -1,0 +1,110 @@
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="name">Numero</label>
+          <input
+            type="number"
+            class="form-control"
+            id="Numero"
+            required
+            [(ngModel)]="navire.numero"
+            name="numero"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Nom"
+            required
+            [(ngModel)]="navire.nom"
+            name="nom"
+          />
+        </div>
+  
+        <div *ngIf="!submitted">
+          <div class="form-group">
+            <label for="name">Annee</label>
+            <input
+              type="number"
+              class="form-control"
+              id="Annee"
+              [(ngModel)]="navire.annee"
+              name="annee"
+            />
+          </div>
+
+          <div *ngIf="!submitted">
+            <div class="form-group">
+              <label for="name">Longueur</label>
+              <input
+                type="number"
+                class="form-control"
+                id="Longueur"
+                required
+                [(ngModel)]="navire.longueur"
+                name="longueur"
+              />
+            </div>
+
+            <div *ngIf="!submitted">
+              <div class="form-group">
+                <label for="name">Largeur</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="Largeur"
+                  required
+                  [(ngModel)]="navire.largeur"
+                  name="largeur"
+                />
+              </div>
+
+              <div *ngIf="!submitted">
+                <div class="form-group">
+                  <label for="name">TonnageBrut</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="tonnageBrut"
+                    [(ngModel)]="navire.tonnageBrut"
+                    name="tonnageBrut"
+                  />
+                </div>
+
+                <div *ngIf="!submitted">
+                  <div class="form-group">
+                    <label for="name">TonnageNet</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="tonnageNet"
+                      [(ngModel)]="navire.tonnageNet"
+                      name="tonnageNet"
+                    />
+                  </div>
+
+        <div class="form-group">
+          <label for="description">Note</label>
+          <input
+          type="text"
+            class="form-control"
+            id="note"
+            required
+            [(ngModel)]="navire.note"
+            name="note"
+          />
+        </div>
+  
+        <button (click)="saveNavire()" class="btn btn-success">Submit</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Navire was submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newNavire()">Add</button>
+      </div>
+    </div>
+  </div>

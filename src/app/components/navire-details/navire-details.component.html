@@ -1,0 +1,113 @@
+<div *ngIf="viewMode; else editable">
+    <div *ngIf="currentNavire.numero">
+      <h4>Navire</h4>
+      <div>
+        <label><strong>Numero:</strong></label> {{ currentNavire.numero }}
+      </div>
+      <div>
+        <label><strong>Nom:</strong></label> {{ currentNavire.nom }}
+      </div>
+      <div>
+        <label><strong>Annee:</strong></label>
+        {{ currentNavire.annee }}
+      </div>
+      <div>
+        <label><strong>Longueur:</strong></label>
+        {{ currentNavire.longueur }}
+      </div>
+      <div>
+        <label><strong>Largeur:</strong></label>
+        {{ currentNavire.largeur }}
+      </div>
+      <div>
+        <label><strong>Tonnage Brut:</strong></label>
+        {{ currentNavire.tonnageBrut }}
+      </div>
+      <div>
+        <label><strong>Tonnage Net:</strong></label>
+        {{ currentNavire.tonnageNet }}
+      </div>
+      <div>
+        <label><strong>note:</strong></label>
+        {{ currentNavire.note }}
+      </div>
+      <a
+        class="badge badge-warning"
+        routerLink="/navires/{{ currentNavire.numero }}"
+      >
+        Edit
+      </a>
+    </div>
+  
+    <div *ngIf="!currentNavire">
+      <br />
+      <p>Please click on a Navire...</p>
+    </div>
+  </div>
+  
+  <ng-template #editable>
+    <div *ngIf="currentNavire.id" class="edit-form">
+      <h4>Navire</h4>
+      <form>
+        <div class="form-group">
+          <label for="name">Numero</label>
+          <input
+            type="text"
+            class="form-control"
+            id="numero"
+            [(ngModel)]="currentNavire.nom"
+            name="numero"
+          />
+        </div>
+        <div class="form-group">
+          <label for="name">Nom</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)]="currentNavire.nom"
+            name="nom"
+          />
+        </div>
+        <div class="form-group">
+          <label for="anne">anne</label>
+          <input
+            type="text"
+            class="form-control"
+            id="annee"
+            [(ngModel)]="currentNavire.annee"
+            name="annee"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label><strong>Tonnage Brut:</strong></label>
+          <input
+            type="text"
+            class="form-control"
+            id="tonnageBrut"
+            [(ngModel)]="currentNavire.tonnageBrut"
+            name="tonnagebrut"
+          />
+        </div>
+      </form>
+    
+      <button class="badge badge-danger mr-2" (click)="deleteNavire()">
+        Delete
+      </button>
+  
+      <button
+        type="submit"
+        class="badge badge-success mb-2"
+        (click)="updateNavire()"
+      >
+        Update
+      </button>
+      <p>{{ message }}</p>
+    </div>
+  
+    <div *ngIf="!currentNavire.id">
+      <br />
+      <p>Cannot access this navire...</p>
+    </div>
+  </ng-template>
